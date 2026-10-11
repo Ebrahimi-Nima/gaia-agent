@@ -1,0 +1,11 @@
+.git
+.github
+.env
+.venv
+data
+gaia_data
+tests
+__pycache__
+*.egg-info
+dist
+build

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+data/
+gaia_data/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/

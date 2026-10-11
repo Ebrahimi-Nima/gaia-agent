@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gaia-agent"
+dynamic = ["version"]
+description = "A small, framework-free tool-using LLM agent for the GAIA level-1 questions of the Hugging Face Agents Course."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Nima Ebrahimi" }]
+keywords = ["llm", "agents", "tool-calling", "gaia", "litellm", "rag"]
+dependencies = [
+    "litellm",
+    "ddgs",
+    "beautifulsoup4",
+    "lxml",
+    "markdownify",
+    "pymupdf",
+    "pymupdf4llm",
+    "pandas",
+    "openpyxl",
+    "xlrd",
+    "huggingface_hub",
+    "requests",
+    "youtube-transcript-api>=1.0",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+audio = ["openai-whisper"]   # local Whisper transcription (large download, needs ffmpeg)
+dev = ["pytest"]
+
+[project.scripts]
+gaia-agent = "gaia_agent.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["gaia_agent*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "gaia_agent.__version__" }
